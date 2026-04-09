@@ -1,0 +1,80 @@
+server:
+  name: "Statshv MCP Server"
+  version: "1.0.0"
+  description: "MCP Server for the statshv instrument test & calibration MySQL database with VeoliaSecureGPT"
+
+database:
+  pool_size: 5
+  max_overflow: 10
+  pool_timeout: 30
+
+llm:
+  max_tokens: 4096
+  temperature: 0.2
+  system_prompt: |
+    You are a T&C (Test and Calibration) assistant with access to the statshv instrument
+    database. You help users query and analyze instrument data including bay status,
+    calibration results (condaz, condcalver, spcal, speccal), I/O tests, repair history,
+    FPY statistics, OBA notes, and protocol test times.
+    Always provide accurate, concise answers based on the database results.
+    Never expose raw credentials or sensitive system information.
+
+allowed_tables:
+  - aftermkt
+  - autosampler
+  - autoscomp
+  - blocks
+  - boards
+  - borcomp
+  - borinst
+  - boron_ultra
+  - boron_ultra_chklst
+  - boron_ultra_comp
+  - cells
+  - checkpoint
+  - chkptchklst
+  - chkptcomp
+  - chkptcomtc
+  - components
+  - consumables
+  - i500
+  - i500chklst
+  - i500comp
+  - i500comptc
+  - i900comp
+  - i900comptc
+  - innovox
+  - instruments
+  - ivxchklst
+  - ivxcomp
+  - ivxcomptc
+  - ivxkits
+  - m500
+  - m500chklst
+  - m500comp
+  - m500comptc
+  - partbom
+  - partdesc
+  - partlocn
+  - qoidocs
+  - reagents
+  - salesords
+  - seqengine
+  - serialno_label
+  - shipping
+  - shorts
+  - soleil
+  - soleilcomp
+  - stat2
+  - stat2_chklst
+  - stat2_comp
+  - tempdev
+  - tibet
+  - tibetcmp
+  - tibetrdr
+  - truesense
+  - tscomp
+  - vialwash
+  - welding
+
+read_only_mode: true

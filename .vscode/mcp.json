@@ -1,0 +1,18 @@
+{
+  "servers": {
+    "statshv-db": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["-m", "src.server"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "DB_HOST": "${env:DB_HOST}",
+        "DB_NAME": "${env:DB_NAME}",
+        "DB_USER": "${env:DB_USER}",
+        "DB_PASSWORD": "${env:DB_PASSWORD}",
+        "VEOLIA_GPT_API_KEY": "${env:VEOLIA_GPT_API_KEY}",
+        "VEOLIA_GPT_API_URL": "${env:VEOLIA_GPT_API_URL}"
+        }
+    }
+  }
+}
